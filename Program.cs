@@ -120,6 +120,19 @@ app.MapGet("/api/dogs/{id}", (int id) =>
 
 });
 
+app.MapDelete("/api/dogs/{id}", (int id) =>
+{
+    Dog dog = dogs.FirstOrDefault(d => d.Id == id);
+
+    if(dog == null)
+    {
+        return Results.NotFound();
+    }
+
+    dogs.Remove(dog);
+    return Results.NoContent();
+});
+
 app.MapGet("/api/hello", () =>
 {
     return new { Message = "Welcome to DeShawn's Dog Walking" };

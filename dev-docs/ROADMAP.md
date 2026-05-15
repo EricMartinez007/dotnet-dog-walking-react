@@ -41,7 +41,7 @@ Generated from: dev-docs/PRD.md
   - **Given** a dog with no walker assigned, **When** you navigate to its detail page, **Then** the page shows the dog's name and city, and the walker field shows "None" or similar.
   - **Given** the dog list, **When** you click a dog's name, **Then** you land on that dog's detail page.
 
-- [ ] **Step 5: Story 8 - Delete Dog**
+- [x] **Step 5: Story 8 - Delete Dog**
   Add `DELETE /api/dogs/{id}` to `Program.cs`. Add a Delete button to `DogDetails.jsx` that calls the endpoint and then navigates back to the dog list. Add `deleteDog` to `apiManager.js`.
 
   Branch: `feature/8/delete-dog`

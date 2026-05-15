@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllDogs } from "../../apiManager";
+import { deleteDog, getAllDogs } from "../../apiManager";
 
 export default function DogList() {
     const [dogs, setDogs] = useState([]);
@@ -9,13 +9,23 @@ export default function DogList() {
         getAllDogs().then(setDogs);
     }, []);
 
+
+    const handleDeleteDog = (dogId) => {
+        deleteDog(dogId).then(() => getAllDogs().then(setDogs))
+    }
+    
     return (
         <div>
             <h1>Dogs</h1>
             <ul>
                 {dogs.map((dog) => (
                     <li key={dog.id}>
-                        <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> - {dog.city.name}
+                        <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> - {dog.city.name} <button
+                            className="dog-delete-btn"
+                            onClick={() => handleDeleteDog(dog.id)}
+                        >
+                            Remove 
+                        </button>
                     </li>
                 ))}
             </ul>

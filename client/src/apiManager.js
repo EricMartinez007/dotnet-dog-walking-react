@@ -12,3 +12,8 @@ export const getDogById = async (id) => {
   const res = await fetch(`/api/dogs/${id}`);
   return res.json();
 };
+
+export const deleteDog = async (id) => {
+  const res = await fetch(`/api/dogs/${id}`, { method: "DELETE" });
+  return res;
+};
