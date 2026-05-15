@@ -90,6 +90,36 @@ app.MapGet("/api/dogs", () =>
     });
 });
 
+app.MapGet("/api/dogs/{id}", (int id) =>
+{
+    Dog dog = dogs.FirstOrDefault(d => d.Id == id);
+
+    if (dog == null)
+    {
+        return Results.NotFound();
+    }
+
+    City city = cities.FirstOrDefault(c => c.Id == dog.CityId);
+    Walker walker = walkers.FirstOrDefault(w => w.Id == dog.WalkerId);
+
+    return Results.Ok(new DogDTO
+        {
+            Id = dog.Id,
+            Name = dog.Name,
+            City = new CityDTO
+            {
+                Id = city.Id,
+                Name = city.Name
+            },
+            Walker = walker == null ? null : new WalkerDTO
+            {
+                Id = walker.Id,
+                Name = walker.Name
+            }
+        });
+
+});
+
 app.MapGet("/api/hello", () =>
 {
     return new { Message = "Welcome to DeShawn's Dog Walking" };

@@ -31,7 +31,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the app is running, **When** you navigate to `/`, **Then** a list of all seeded dogs is displayed, each showing the dog's name and city name.
   - **Given** the dog list, **When** you call `GET /api/dogs` in Postman, **Then** the response is a JSON array where each object has at least `id`, `name`, and `cityName`.
 
-- [ ] **Step 4: Story 2 - View Dog Details**
+- [x] **Step 4: Story 2 - View Dog Details**
   Add `GET /api/dogs/{id}` to `Program.cs`. The response should include the dog's walker name if one is assigned (null or omitted otherwise). Create `DogDetails.jsx`, add a route at `/dogs/:id`, and link each dog's name in `DogList` to its detail page. Add `getDogById` to `apiManager.js`.
 
   Branch: `feature/2/view-dog-details`

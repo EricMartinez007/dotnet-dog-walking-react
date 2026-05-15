@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllDogs } from "../../apiManager";
 
 export default function DogList() {
@@ -14,7 +15,7 @@ export default function DogList() {
             <ul>
                 {dogs.map((dog) => (
                     <li key={dog.id}>
-                        {dog.name} - {dog.city.name}
+                        <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> - {dog.city.name}
                     </li>
                 ))}
             </ul>
