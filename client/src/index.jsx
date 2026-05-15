@@ -4,14 +4,15 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./Home";
+import DogList from "./components/dogs/DogList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route index element={<Home />} />
+        <Route index element={<DogList />} />
+        <Route path="dogs" element={<DogList />} />
       </Route>
     </Routes>
   </BrowserRouter>,
