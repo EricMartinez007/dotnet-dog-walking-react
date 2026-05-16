@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteDog, getAllDogs } from "../../apiManager";
 
 export default function DogList() {
     const [dogs, setDogs] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getAllDogs().then(setDogs);
@@ -17,6 +18,7 @@ export default function DogList() {
     return (
         <div>
             <h1>Dogs</h1>
+            <button onClick={() => navigate("/dogs/add")}>Add Dog</button>
             <ul>
                 {dogs.map((dog) => (
                     <li key={dog.id}>

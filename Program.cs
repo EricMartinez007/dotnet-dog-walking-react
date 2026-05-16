@@ -162,9 +162,22 @@ app.MapPost("/api/cities", (City city) =>
     });
 });
 
-app.MapGet("/api/hello", () =>
+app.MapPost("/api/dogs", (Dog dog) =>
 {
-    return new { Message = "Welcome to DeShawn's Dog Walking" };
+    if(dog == null)
+    {
+        return Results.BadRequest();
+    }
+
+    dog.Id = dogs.Max(c => c.Id) + 1;
+    dog.WalkerId = null;
+    dogs.Add(dog);
+
+    return Results.Created($"/api/dogs/{dog.Id}", new DogDTO
+    {
+        Id = dog.Id,
+        Name = dog.Name,
+    });
 });
 
 

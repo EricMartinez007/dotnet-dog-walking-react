@@ -31,3 +31,12 @@ export const createCity = async (cityName) => {
   });
   return res.json();
 };
+
+export const createDog = async (dogName, cityId) => {
+  const res = await fetch("/api/dogs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: dogName, cityId: cityId })
+  });
+  return res.json();
+};

@@ -61,7 +61,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the Add City form, **When** you submit a new city name, **Then** the city is added to the in-memory list and the form navigates away (or clears).
   - **Given** a fresh submission, **When** you call `GET /api/cities`, **Then** the new city appears in the response.
 
-- [ ] **Step 7: Story 3 - Add Dog**
+- [x] **Step 7: Story 3 - Add Dog**
   Add `POST /api/dogs` to `Program.cs`. Create `DogForm.jsx` with a name text input and a city dropdown (populated from `GET /api/cities`). Add a `/dogs/add` route and an "Add Dog" link from `DogList`. Add `createDog` to `apiManager.js`.
 
   Branch: `feature/3/add-dog`
