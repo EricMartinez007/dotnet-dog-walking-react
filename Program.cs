@@ -133,6 +133,35 @@ app.MapDelete("/api/dogs/{id}", (int id) =>
     return Results.NoContent();
 });
 
+app.MapGet("/api/cities", () =>
+{
+    return cities.Select(city =>
+    {
+        return new CityDTO
+        {
+            Id = city.Id,
+            Name = city.Name
+        };
+    });
+});
+
+app.MapPost("/api/cities", (City city) =>
+{
+    if(city == null)
+    {
+        return Results.BadRequest();
+    }
+
+    city.Id = cities.Max(c => c.Id) + 1;
+    cities.Add(city);
+
+    return Results.Created($"/api/cities/{city.Id}", new CityDTO
+    {
+        Id = city.Id,
+        Name = city.Name
+    });
+});
+
 app.MapGet("/api/hello", () =>
 {
     return new { Message = "Welcome to DeShawn's Dog Walking" };

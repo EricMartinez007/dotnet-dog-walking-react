@@ -50,7 +50,7 @@ Generated from: dev-docs/PRD.md
   - **Given** a dog detail page, **When** you click Delete, **Then** the dog is removed from the in-memory list, and the browser navigates back to `/`.
   - **Given** the dog list after deletion, **Then** the deleted dog no longer appears.
 
-- [ ] **Step 6: Story 6 - Add City**
+- [x] **Step 6: Story 6 - Add City**
   Add `GET /api/cities` and `POST /api/cities` to `Program.cs`. Create `client/src/components/cities/CityForm.jsx` with a single name input and submit button. Add a `/cities/add` route and a "Add City" nav link in `App.jsx`. Add `getAllCities` and `createCity` to `apiManager.js`.
 
   Note: `GET /api/cities` is also needed by stories 3, 4, and 7, so this step lays shared groundwork.
