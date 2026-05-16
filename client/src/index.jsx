@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import DogList from "./components/dogs/DogList";
 import DogDetails from "./components/dogs/DogDetails";
+import CityForm from "./components/cities/CityForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
         <Route index element={<DogList />} />
         <Route path="dogs" element={<DogList />} />
         <Route path="dogs/:id" element={<DogDetails />} />
+        <Route path="cities/add" element={<CityForm />} />
       </Route>
     </Routes>
   </BrowserRouter>,

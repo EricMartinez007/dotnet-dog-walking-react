@@ -17,3 +17,17 @@ export const deleteDog = async (id) => {
   const res = await fetch(`/api/dogs/${id}`, { method: "DELETE" });
   return res;
 };
+
+export const getAllCities = async () => {
+  const res = await fetch("/api/cities");
+  return res.json();
+};
+
+export const createCity = async (cityName) => {
+  const res = await fetch("/api/cities", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: cityName }),
+  });
+  return res.json();
+};
