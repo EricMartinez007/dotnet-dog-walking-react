@@ -40,3 +40,9 @@ export const createDog = async (dogName, cityId) => {
   });
   return res.json();
 };
+
+export const getWalkers = async (cityId) => {
+  const url = cityId ? `/api/walkers?cityId=${cityId}` : "/api/walkers";
+  const res = await fetch(url);
+  return res.json();
+};
