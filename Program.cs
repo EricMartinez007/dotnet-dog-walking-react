@@ -145,6 +145,19 @@ app.MapGet("/api/cities", () =>
     });
 });
 
+app.MapGet("/api/walkers", (int? cityId) =>
+{
+    List<Walker> filtered = cityId.HasValue
+        ? walkers.Where(w => walkerCities.Any(wc => wc.WalkerId == w.Id && wc.CityId == cityId.Value)).ToList()
+        : walkers;
+
+    return filtered.Select(w => new WalkerDTO
+    {
+        Id = w.Id,
+        Name = w.Name
+    });
+});
+
 app.MapPost("/api/cities", (City city) =>
 {
     if(city == null)

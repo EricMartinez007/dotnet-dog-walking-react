@@ -71,7 +71,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the dog list after adding, **Then** the new dog appears with its correct city name.
   - **Given** the form loads, **When** the page mounts, **Then** the city dropdown is populated with all current cities.
 
-- [ ] **Step 8: Story 4 - View Walkers by City**
+- [x] **Step 8: Story 4 - View Walkers by City**
   Add `GET /api/walkers` to `Program.cs` with an optional `?cityId=` query string parameter. When `cityId` is provided, return only walkers who have a matching entry in `walkerCities`; otherwise return all walkers. Create `WalkerList.jsx` with a city dropdown that triggers a filtered fetch. Add a `/walkers` route and update the existing "Walkers" nav link. Add `getWalkers` to `apiManager.js`.
 
   Branch: `feature/4/walkers-by-city`
